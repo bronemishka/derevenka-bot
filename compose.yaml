@@ -1,0 +1,18 @@
+services:
+  bot:
+    build: .
+    restart: on-failure
+    environment:
+      ImageGeneration__StoragePath: /data/image-generation
+      ImageGeneration__Enabled: ${IMAGE_GENERATION_ENABLED:-false}
+      ImageGeneration__UseFakeProvider: ${USE_FAKE_PROVIDER:-true}
+      ImageGeneration__AllowedUsers__0: ${ALLOWED_USER_ID:-0}
+      ImageGeneration__OwnerUserId: ${OWNER_USER_ID:-0}
+      ImageGeneration__SafetySalt: ${SAFETY_SALT:-}
+      Telegram__EnablePolling: ${TELEGRAM_ENABLE_POLLING:-false}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:-}
+    volumes:
+      - image-data:/data
+volumes:
+  image-data:

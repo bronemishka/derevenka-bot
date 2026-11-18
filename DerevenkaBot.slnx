@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/DerevenkaBot.Core/DerevenkaBot.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/DerevenkaBot.Tests/DerevenkaBot.Tests.csproj" />
+  </Folder>
+  <Project Path="DerevenkaBot/DerevenkaBot.csproj" />
+</Solution>

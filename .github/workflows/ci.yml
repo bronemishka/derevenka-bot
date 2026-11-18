@@ -1,0 +1,13 @@
+name: build-and-test
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 11.0.x
+      - run: dotnet restore DerevenkaBot.slnx
+      - run: dotnet build DerevenkaBot.slnx -c Release --no-restore
+      - run: dotnet test DerevenkaBot.slnx -c Release --no-build
